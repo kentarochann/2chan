@@ -1,6 +1,8 @@
 <?php
 
-use App\Models\Post;
+// use App\Models\Post;
+
+use App\Http\Controllers\PostApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +21,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/', [Post::class, 'index']);
-Route::resource('posts', Post::class)->only('store', 'update', 'destroy');
+Route::get('/', [PostApiController::class, 'index']);
+Route::resource('posts', PostApiController::class)->only('show', 'store', 'update', 'destroy');
